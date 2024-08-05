@@ -2,9 +2,7 @@
 # https://hub.docker.com/_/python
 FROM python:3.9-slim
 
-# Copy local code to the container image.
-ENV APP_HOME /app
-ENV NLTK_DATA /app/nltk_data
+
 
 
 WORKDIR $APP_HOME
