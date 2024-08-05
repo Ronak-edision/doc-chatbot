@@ -1,20 +1,21 @@
-# Use an official Python runtime as a parent image
+# Use the official lightweight Python image.
+# https://hub.docker.com/_/python
 FROM python:3.9-slim
 
-# Set the working directory
-WORKDIR /app
+# Copy local code to the container image.
+ENV APP_HOME /app
+ENV NLTK_DATA /app/nltk_data
 
-# Copy the current directory contents into the container at /app
-COPY . /app
 
-# Install any needed packages specified in requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+WORKDIR $APP_HOME
+COPY . .
 
-# Make port 8501 available to the world outside this container
-EXPOSE 8501
+# Install production dependencies.
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
 
-# Define environment variable
-ENV PYTHONUNBUFFERED=1
+# Run the setup script to download NLTK stopwords
+RUN chmod +x setup.sh && ./setup.sh
 
-# Run app.py when the container launches
-CMD ["streamlit", "run", "app.py"]
+# Run the web service on container startup.
+CMD ["streamlit", "run", "app.py", "--server.port", "8080", "--server.address", "0.0.0.0"]
