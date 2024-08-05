@@ -30,3 +30,9 @@ This project implements a chatbot that can answer user queries based on the cont
    ```bash
    git clone https://github.com/Ronak-edision/doc-chatbot.git
    cd doc-chatbot
+
+### Deployed Application
+
+You can also access the deployed application online at: [Document Chatbot](https://doc-chatbot-ronakshrestha.streamlit.app/)
+
+
