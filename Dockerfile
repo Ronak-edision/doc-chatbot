@@ -12,7 +12,7 @@ COPY . .
 
 # Install production dependencies.
 RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
+RUN pip install -r requirement.txt
 
 # Run the setup script to download NLTK stopwords
 RUN chmod +x setup.sh && ./setup.sh
