@@ -28,5 +28,5 @@ This project implements a chatbot that can answer user queries based on the cont
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Ronak-edision/doc-chatbot/new/master.git
-   cd document-chatbot
+   git clone https://github.com/Ronak-edision/doc-chatbot.git
+   cd doc-chatbot
